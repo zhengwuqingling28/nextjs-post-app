@@ -4,5 +4,5 @@ interface IPost {
   title: string;
   content: string;
   created_at: string;
-  user_id: number;
+  userId: number;
 }

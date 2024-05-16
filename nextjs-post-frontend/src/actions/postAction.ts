@@ -62,7 +62,7 @@ export const createPost = async (formData) => {
     title: title,
     content: content,
     created_at: isoString,
-    user_id: uuidv4(),
+    userId: uuidv4(),
   };
   console.log(post);
   await fetch("http://localhost:8000/posts", {

@@ -20,7 +20,7 @@
       "title": "First Post",
       "content": "This is the first post",
       "created_at": "2024-05-01T12:00:00Z",
-      "user_id": 1
+      "userId": 1
     },
     {
       "id": 2,
@@ -28,21 +28,21 @@
       "title": "Second Post",
       "content": "This is the second post",
       "created_at": "2024-05-02T13:00:00Z",
-      "user_id": 2
+      "userId": 2
     }
   ],
   "likes": [
     {
-      "user_id": 1,
-      "post_id": 1
+      "userId": 1,
+      "postId": 1
     },
     {
-      "user_id": 2,
-      "post_id": 1
+      "userId": 2,
+      "postId": 1
     },
     {
-      "user_id": 2,
-      "post_id": 2
+      "userId": 2,
+      "postId": 2
     }
   ]
 }
