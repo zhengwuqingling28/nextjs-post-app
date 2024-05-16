@@ -1,5 +1,8 @@
+"use client";
+
 import { formatDate } from "@/lib/format";
 import LikeButton from "../like-btn";
+import { togglePostLikeStatus } from "@/actions/postAction";
 
 interface IProps {
   post: IPost;
@@ -23,7 +26,12 @@ function Post({ post }: IProps) {
             </p>
           </div>
           <div>
-            <LikeButton />
+            <form
+              action={() => togglePostLikeStatus(post.id)}
+              className={post.isLiked ? "liked" : ""}
+            >
+              <LikeButton />
+            </form>
           </div>
         </header>
         <p>{post.content}</p>

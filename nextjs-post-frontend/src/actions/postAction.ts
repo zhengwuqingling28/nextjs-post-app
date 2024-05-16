@@ -73,3 +73,54 @@ export const createPost = async (formData) => {
   revalidatePath("/feed");
   redirect("/feed");
 };
+
+const findLikePost = async (postId: number) => {
+  const res = await fetch(
+    `http://localhost:8000/likes?userId=2&postId=${postId}&_limit=1`,
+    {
+      method: "GET",
+      headers: { "Content-Type": "application/json" },
+    }
+  );
+  const data = await res.json();
+  const like = { ...data[0] };
+  console.log(like);
+  return like;
+};
+
+const likePost = async (postId: number) => {
+  const req: ILike = { id: uuidv4(), postId: postId, userId: 2 };
+  await fetch("http://localhost:8000/likes", {
+    method: "POST",
+    body: JSON.stringify(req),
+    headers: { "Content-Type": "application/json" },
+  });
+  console.log("You has liked this post");
+};
+
+const unlikePost = async (postId: number) => {
+  const like: ILike = await findLikePost(postId);
+  like.postId = null;
+  like.userId = null;
+  await fetch(`http://localhost:8000/likes/${like.id}`, {
+    method: "PUT",
+    body: JSON.stringify(like),
+    headers: { "Content-Type": "application/json" },
+  });
+  console.log("You has unliked this post");
+};
+
+export const togglePostLikeStatus = async (id: number) => {
+  const like: ILike = await findLikePost(id);
+  if (
+    like.userId === null ||
+    like.postId === null ||
+    like.userId === undefined ||
+    like.postId === undefined
+  ) {
+    await likePost(id);
+  } else {
+    await unlikePost(id);
+  }
+  revalidatePath("/feed");
+};

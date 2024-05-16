@@ -5,4 +5,5 @@ interface IPost {
   content: string;
   created_at: string;
   userId: number;
+  isLiked?: boolean;
 }

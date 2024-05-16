@@ -3,7 +3,7 @@ import PostsGrid from "@/components/post/posts-grid";
 import FeedLoading from "./loading";
 
 const Feeds = async () => {
-  const res = await fetch(`http://localhost:8000/posts`, {
+  const res = await fetch(`http://localhost:8000/posts-enriched`, {
     method: "GET",
   });
 
