@@ -1,0 +1,48 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "first_name": "John",
+      "last_name": "Doe",
+      "email": "john@example.com"
+    },
+    {
+      "id": 2,
+      "first_name": "Max",
+      "last_name": "Schwarz",
+      "email": "max@example.com"
+    }
+  ],
+  "posts": [
+    {
+      "id": 1,
+      "image_url": "http://example.com/image1.jpg",
+      "title": "First Post",
+      "content": "This is the first post",
+      "created_at": "2024-05-01T12:00:00Z",
+      "user_id": 1
+    },
+    {
+      "id": 2,
+      "image_url": "http://example.com/image2.jpg",
+      "title": "Second Post",
+      "content": "This is the second post",
+      "created_at": "2024-05-02T13:00:00Z",
+      "user_id": 2
+    }
+  ],
+  "likes": [
+    {
+      "user_id": 1,
+      "post_id": 1
+    },
+    {
+      "user_id": 2,
+      "post_id": 1
+    },
+    {
+      "user_id": 2,
+      "post_id": 2
+    }
+  ]
+}
